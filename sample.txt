@@ -1,0 +1,173 @@
+// システムパラメータの登録
+%setGlobal Size, 1280, 960
+
+%setGlobal Font, ./fonts/cinecaption227.ttf
+%setGlobal TextColor, #ffffff
+%setGlobal TextSize, 40
+%setGlobal MessageArea, 360, 570, 570, 350
+%setGlobal MessageWindow, ./assets/message_window.png
+
+%setGlobal Frame, ./assets/frame.png
+
+// 画像の登録
+%register black, ./assets/black.jpg
+%register title, ./assets/title.jpg
+%register back01, ./assets/back01.jpg
+%register back02, ./assets/back02.jpg
+%register back03, ./assets/back03.jpg
+%register chiry_normal, ./assets/chiry_normal.png, 230, -390
+%register chiry_sad, ./assets/chiry_sad.png, 230, -390
+%register chiry_angry, ./assets/chiry_angry.png, 230, -390
+%register celos_normal, ./assets/celos_normal.png, 60, -390
+
+
+%back title
+
+## スタート
+
+%back back01
+%show 1, chiry_normal
+
+あなたは洞窟に来ました。
+一番おくにいる魔物を倒して
+お宝を手に入れましょう！
+
+- [次へ](最初の間)
+
+## 最初の間
+
+%back back01
+%show 1, chiry_normal
+
+ここは入り口だ。
+どうする？
+
+- [奥に進む](次の間)
+
+## 次の間
+
+%back back01
+%show 1, chiry_normal
+
+分かれ道がある。
+どうする？
+
+- [奥に進む](奥の間)
+- [右に進む](横の間)
+- [入り口へ戻る](最初の間)
+
+## 奥の間
+
+%back back02
+%show 1, chiry_normal
+
+宝箱がある！
+どうする？
+
+- [開ける](宝箱)
+- [分かれ道に戻る](次の間)
+
+## 宝箱
+
+%back black
+
+突然足元が崩れ
+眼の前が真っ暗になった！
+残念、床が腐っていたんだ！
+
+- [次へ](ゲームオーバー)
+
+## 横の間
+
+%back back01
+%show 1, chiry_sad
+
+足元が崩れそうだ。
+どうする？
+
+- [奥に進む](最深部)
+- [分かれ道に戻る](次の間)
+
+## 最深部
+
+%back back02
+%show 1, chiry_normal
+%show 3, celos_normal
+
+洞窟の魔物が現れた！
+どうする？
+
+- [剣で攻撃する](剣で攻撃)
+- [様子を見る](様子を見る)
+- [逃げる](逃げる)
+
+## 剣で攻撃
+
+%back back02
+%show 1, chiry_angry
+%show 3, celos_normal
+
+あなたは一瞬で間合いを詰め
+魔物に全力で斬りかかった！
+
+- [次へ]
+
+-----
+
+%back back03
+%show 1, chiry_normal
+
+魔物は大慌てで逃げだした！
+おめでとう！
+宝は君のものだ！
+
+- [次へ](エンディング)
+
+## 様子を見る
+
+%back back02
+%show 3, celos_normal
+
+魔物は宝箱を守っているようだ
+この魔物を倒さずに
+宝箱に近寄る方法はないだろう
+
+- [次へ](最深部)
+
+## 逃げる
+
+%back back01
+%show 1, chiry_normal
+%show 3, celos_normal
+
+あなたは逃げようとした！
+しかし残念だが魔物に
+気づかれてしまった！
+
+- [次へ]
+
+----
+
+%back black
+
+「ガッシ！ボカッ！」
+あなたは死んだ
+
+- [次へ](ゲームオーバー)
+
+## ゲームオーバー
+
+%back black
+
+あなたの冒険は
+ここで終わってしまった！
+もう一度やり直そう！
+
+- [最初から](スタート)
+
+## エンディング
+
+＜おしまい＞
+クリアおめでとう！
+
+- [最初からやり直す](スタート)
